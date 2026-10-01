@@ -1,9 +1,0 @@
-Task 2 verification: 2026-10-01T07:22:35.984333+00:00
-PASS: Frontend and direct SPA navigation respond
-PASS: Backend, MongoDB, and Redis are ready through the Nginx proxy
-PASS: Invalid post is rejected
-PASS: Email/password API signup and signin use the runtime JWT secret
-PASS: Create, read, and list a post backed by MongoDB
-PASS: Update is visible in both detail and cached list routes
-PASS: Delete removes the post from MongoDB and cached lists
-All requested checks passed.

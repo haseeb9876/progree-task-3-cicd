@@ -1,9 +1,0 @@
-{
-  "success": false,
-  "numPassedTests": 28,
-  "numFailedTests": 1,
-  "numTotalTests": 29,
-  "failed_test_names": [
-    "DEMO: an invalid category must not accidentally be accepted"
-  ]
-}

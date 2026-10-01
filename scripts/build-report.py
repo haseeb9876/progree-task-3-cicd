@@ -11,7 +11,7 @@ from reportlab.lib.units import mm
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak, Preformatted
 
 root = Path(__file__).resolve().parents[1]
-folder = root / 'docs/task-3'
+folder = root / 'docs'
 evidence = folder / 'evidence'
 def load(name): return json.loads((evidence / name).read_text())
 success = load('successful-run.json')
@@ -102,7 +102,7 @@ story.append(PageBreak())
 
 title('Operation and submission handoff')
 heading('Where to review the pipeline')
-para('<link href="https://github.com/haseeb9876/progree-devops-internship/actions/workflows/task3-ci-cd.yml" color="blue">Open the Task 3 GitHub Actions workflow</link><br/>Choose a run to see job outcomes, test summaries, deployment metrics, logs, and artifacts.')
+para('<link href="https://github.com/haseeb9876/progree-task-3-cicd/actions/workflows/task3-ci-cd.yml" color="blue">Open the Task 3 GitHub Actions workflow</link><br/>Choose a run to see job outcomes, test summaries, deployment metrics, logs, and artifacts.')
 table([
     ['Artifact','Contents / retention'],
     ['tests-backend-* / tests-frontend-*','Test JSON and selected-module coverage; 14 days.'],
@@ -110,7 +110,7 @@ table([
     ['application-images-*','Image archive, checksum, and manifest; 3 days.'],
     ['deployment-evidence-*','Commit, startup time, health, API checks, service status, and redacted logs; 14 days.'],
 ], [245,250])
-para('The repository also retains compact evidence under docs/task-3/evidence so the report remains useful after downloadable artifacts expire. GitHub run links provide the original execution history.')
+para('The repository also retains compact evidence under docs/evidence so the report remains useful after downloadable artifacts expire. GitHub run links provide the original execution history.')
 heading('Important operational behavior')
 para('Pushes and manual runs deploy temporary test environments. Pull requests run quality and build checks without deployment. Each deployment has its own Compose project name and temporary credentials. Runner credentials are masked in logs; uploaded paths exclude secret files. The GitHub token has read-only repository-content permission, and action versions are pinned to commit hashes.')
 heading('Run the same quality checks locally')

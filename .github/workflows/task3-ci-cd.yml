@@ -85,7 +85,7 @@ jobs:
           python3 scripts/ci/images.py capture
       - name: Package the exact built images
         run: |
-          docker save "progree-wanderlust-frontend:${IMAGE_TAG}" "progree-wanderlust-backend:${IMAGE_TAG}" | gzip > .ci-artifacts/application-images.tar.gz
+          docker save "progree-task3-frontend:${IMAGE_TAG}" "progree-task3-backend:${IMAGE_TAG}" | gzip > .ci-artifacts/application-images.tar.gz
           sha256sum .ci-artifacts/application-images.tar.gz > .ci-artifacts/application-images.sha256
       - name: Transfer images to deployment job
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
@@ -140,7 +140,7 @@ jobs:
         run: python3 scripts/ci/deploy.py
       - name: Exercise the deployed application
         id: smoke
-        run: python3 scripts/verify-task2.py 2>&1 | tee .ci-artifacts/smoke-tests.txt
+        run: python3 scripts/verify-stack.py --url http://127.0.0.1:8080 2>&1 | tee .ci-artifacts/smoke-tests.txt
       - name: Collect service status and redacted logs
         if: always()
         run: python3 scripts/ci/report.py collect

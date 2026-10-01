@@ -4,7 +4,7 @@ import argparse
 import json
 import urllib.request
 parser = argparse.ArgumentParser()
-parser.add_argument('--url', default='http://127.0.0.1:8080')
+parser.add_argument('--url', default='http://127.0.0.1:8083')
 args = parser.parse_args()
 url = args.url.rstrip('/') + '/api/posts'
 with urllib.request.urlopen(url, timeout=15) as response:

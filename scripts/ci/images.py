@@ -17,7 +17,7 @@ def inspect(*args):
 if sys.argv[1] == 'capture':
     manifest = []
     for service in ('frontend', 'backend'):
-        image = f'progree-wanderlust-{service}:{tag}'
+        image = f'progree-task3-{service}:{tag}'
         info = inspect('image', 'inspect', image)
         assert info['Config']['Labels']['org.opencontainers.image.revision'] == revision
         manifest.append({'service': service, 'image': image, 'id': info['Id'],

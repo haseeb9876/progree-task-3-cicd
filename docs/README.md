@@ -41,8 +41,8 @@ removed so Jest controls the true exit status.
 The deployment runs on an Ubuntu GitHub-hosted runner under the `task3-test`
 GitHub environment. Nginx, Express, MongoDB, and Redis actually start, and the
 pipeline sends HTTP requests to that running stack. It is removed at the end of
-the job. It is **not a persistent public website** and does not update the Ubuntu
-Task 2 demo. No self-hosted runner, SSH server, cloud account, or registry password
+the job. It is **not a persistent public website** and does not update the standalone local
+Task 3 demo. No self-hosted runner, SSH server, cloud account, or registry password
 is required for this demonstration.
 
 This covers the PDF's automated testing/integration and deployment reporting
@@ -63,7 +63,7 @@ configuration that could not run without parser project settings. Source issues
 found by lint were fixed, including unused parameters, component capitalization,
 an effect dependency, and unsafe error typing. The older backend live-database
 tests remain in the source for reference; real-stack verification uses
-`scripts/verify-task2.py` against the deployed containers.
+`scripts/verify-stack.py` against the deployed containers.
 
 Coverage percentages are shown for the selected application modules listed in
 the Jest configuration; they are not a claim of whole-application coverage.
@@ -110,8 +110,8 @@ npm run test:ci --prefix backend
 npm run test:ci --prefix frontend
 ```
 
-The normal Task 2 `docker compose up -d --build --wait` command still works.
-`IMAGE_TAG` and `APP_REVISION` default to `task2` and `local` for local builds.
+The local `docker compose up -d --build --wait` command runs this standalone app on port 8083.
+`IMAGE_TAG` and `APP_REVISION` default to `local` and `local` for local builds.
 CI overrides them with the pushed SHA and uses a unique Compose project name.
 Do not run CI cleanup commands against your normal local project.
 
@@ -130,7 +130,7 @@ It is not submitted automatically. Task 4 remains separate work.
 With the optional Python `reportlab` package installed:
 
 ```bash
-python3 scripts/build-task3-report.py
+python3 scripts/build-report.py
 ```
 
 This reads the saved run evidence. It does not invent new execution results.

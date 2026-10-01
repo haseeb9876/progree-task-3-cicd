@@ -1,3 +1,0 @@
-PASS: Headless Chrome rendered the homepage with the MongoDB-backed demo posts.
-PASS: Direct navigation to /add-blog rendered the create-post form.
-Screenshots: homepage.png and create-post.png (1440 x 1100).

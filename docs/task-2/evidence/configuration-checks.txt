@@ -1,7 +1,0 @@
-PASS: All four services are healthy.
-PASS: Only the frontend publishes a host port, bound to 127.0.0.1.
-PASS: The database/cache network is internal.
-PASS: Frontend, backend, and Redis use non-root users and read-only root filesystems.
-PASS: Secret mounts are read-only; the backend cannot read the MongoDB root password.
-PASS: MongoDB rejects unauthenticated data queries; Redis rejects unauthenticated PING.
-PASS: Generated secrets are absent from Git-eligible files and runtime image configuration/history.
